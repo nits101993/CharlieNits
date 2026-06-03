@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UPSC Official Notes</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Official-source workspace</p>
+          <h1>UPSC Notes Compiler</h1>
+        </div>
+        <div class="status" id="status">Ready</div>
+      </header>
+
+      <section class="workspace">
+        <aside class="sources">
+          <div class="panel-heading">
+            <h2>Sources</h2>
+          </div>
+
+          <form class="source-form compact" id="accessForm">
+            <label for="accessKey">Site access key</label>
+            <input id="accessKey" name="accessKey" type="password" placeholder="Optional passcode">
+          </form>
+
+          <button class="source-button" id="fetchPib">
+            <span>PIB latest</span>
+            <small>Press releases</small>
+          </button>
+
+          <button class="source-button" id="fetchUpsc">
+            <span>UPSC active exams</span>
+            <small>Notifications and pages</small>
+          </button>
+
+          <button class="source-button" id="fetchRbi">
+            <span>RBI DBIE</span>
+            <small>Economy data pages</small>
+          </button>
+
+          <button class="source-button" id="fetchMospi">
+            <span>MoSPI datasets</span>
+            <small>e-Sankhyiki client</small>
+          </button>
+
+          <form class="source-form" id="dataGovForm">
+            <label for="resourceId">data.gov.in resource ID</label>
+            <input id="resourceId" name="resourceId" placeholder="Resource UUID">
+            <label for="apiKey">API key</label>
+            <input id="apiKey" name="apiKey" type="password" placeholder="data.gov.in key">
+            <label for="dataLimit">Rows</label>
+            <input id="dataLimit" name="dataLimit" type="number" value="10" min="1" max="100">
+            <button type="submit">Fetch data</button>
+          </form>
+
+          <form class="source-form" id="officialUrlForm">
+            <label for="officialUrl">Official URL</label>
+            <input id="officialUrl" name="officialUrl" placeholder="https://pib.gov.in/...">
+            <button type="submit">Fetch page</button>
+          </form>
+        </aside>
+
+        <section class="middle">
+          <div class="panel-heading">
+            <h2>Items</h2>
+            <button class="ghost" id="clearItems">Clear</button>
+          </div>
+          <div id="items" class="items"></div>
+        </section>
+
+        <section class="editor">
+          <div class="panel-heading">
+            <h2>Source Text</h2>
+            <button class="ghost" id="useSelection">Generate</button>
+          </div>
+          <div class="meta-grid">
+            <input id="noteTitle" placeholder="Title">
+            <input id="noteSource" placeholder="Source">
+            <input id="noteUrl" placeholder="Official link">
+          </div>
+          <textarea id="sourceText" spellcheck="false" placeholder="Fetched official text appears here"></textarea>
+        </section>
+
+        <section class="notes">
+          <div class="panel-heading">
+            <h2>UPSC Notes</h2>
+            <div class="actions">
+              <button class="ghost" id="copyNote">Copy</button>
+              <button class="ghost" id="downloadNote">Export</button>
+            </div>
+          </div>
+          <pre id="noteOutput"></pre>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

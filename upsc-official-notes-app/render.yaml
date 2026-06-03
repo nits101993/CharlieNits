@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: upsc-official-notes-web
+    runtime: node
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATAGOVIN_API_KEY
+        sync: false
+      - key: APP_ACCESS_KEY
+        sync: false
